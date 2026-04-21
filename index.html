@@ -1,11 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>apple vision pro</title>
+
+    <!-- title -->
+    <title>Document</title>
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- locomotive scroll css link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
+    <!-- google font file link -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- remix icon link -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
 </head>
+
 <body>
-    
+
+    <!-- MAIN DIV -->
+    <div id="main">
+
+        <!-- PAGE 1 - {HERO}-->
+        <section id="page-one" class="hero">
+
+            <!-- hero content -->
+            <video class="heroVideo" src="https://www.apple.com/105/media/us/apple-vision-pro/2023/7e268c13-eb22-493d-a860-f0637bacb569/anim/hero/large_2x.mp4" muted></video>
+
+            <!-- navigation bar -->
+            <nav class="navbar">
+
+                <!-- navigation container -->
+                <div class="nav-container">
+
+                    <!-- Left Logo -->
+                    <div class="nav-left">
+                        <i class="ri-apple-fill"></i>
+                    </div>
+
+                    <!-- Center Links -->
+                    <ul class="nav-center">
+                        <li>Store</li>
+                        <li>Mac</li>
+                        <li>iPad</li>
+                        <li>iPhone</li>
+                        <li>Watch</li>
+                        <li>Vision</li>
+                        <li>AirPods</li>
+                        <li>TV & Home</li>
+                        <li>Entertainment</li>
+                        <li>Accessories</li>
+                        <li>Support</li>
+                    </ul>
+
+                    <!-- Right Icons -->
+                    <div class="nav-right">
+                        <i class="ri-search-line"></i>
+                        <i class="ri-shopping-bag-line"></i>
+                    </div>
+
+                </div>
+
+            </nav>
+
+            <!-- hero bottom content (TEXT + IMAGE) -->
+            <div class="hero-bottom">
+
+                <p>Introducing</p>
+
+                <div class="visionLogo">
+                    <img src="images/visionprologo.png" alt="vision pro">
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PAGE 2 -->
+        <section id="page-two"></section>
+
+        <!-- PAGE 3 -->
+        <section id="page-three"></section>
+
+    </div>
+
+
+
+    <!-- JS FILE LINKS -->
+
+    <!-- Locomotive Scroll cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+
+    <!-- GSAP cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Scroll trigger cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- script file -->
+    <script src="/script.js"></script>
+
 </body>
+
 </html>
