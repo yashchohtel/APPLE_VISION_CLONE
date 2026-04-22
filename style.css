@@ -27,7 +27,7 @@ body {
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: #000000;
+  background-color: #f3f3f5;
 }
 
 /* page one navbar -------------- */
@@ -36,14 +36,11 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
-  background: #f5f5f7;
+  background: #ffffff;
   backdrop-filter: blur(20px);
   z-index: 999;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
 }
-
-
-
 
 .nav-container {
   max-width: 1200px;
@@ -99,35 +96,39 @@ body {
 /* page one hero content -------------- */
 
 .heroVideo {
-  width: 50%;
-  height: 100%;
+  height: 90%;
   object-fit: cover;
   position: relative;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 /* page one bottom content -------------- */
 .hero-bottom {
   position: absolute;
-  bottom: 70px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 60px;
+  left: 10%;
   text-align: center;
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* Introducing text */
 .hero-bottom p {
   font-size: 20px;
-  opacity: 0.8;
   margin-bottom: 12px;
-  color: #6d6d6f;
+  color: #0a0a0a;
+  font-weight: 600;
 }
 
 /* image */
 .visionLogo img {
-  width: 300px;
+  width: 270px;
+  margin-bottom: 6px;
 }
 
 /* -------------- PAGE TWO ------------------------------------------------------- */

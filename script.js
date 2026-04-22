@@ -44,11 +44,13 @@ loco();
 
 // scroll trigger for page one hero content (video to play on scroll)
 gsap.to("#page-one>.heroVideo", {
+
     scrollTrigger: {
         trigger: "#page-one>.heroVideo",
-        start: "3% top",
+        start: "1% top",
         end: "bottom top",
-        scroller: "#main"
+        scroller: "#main",
+        markers: true
     },
 
     onStart: () => {
@@ -56,4 +58,15 @@ gsap.to("#page-one>.heroVideo", {
     }
 
 });
+
+gsap.to("#page-one", {
+    scrollTrigger: {
+        trigger: "#page-one",
+        start: "top top",
+        end: "bottom top",
+        scroller: "#main",
+        pin: true,
+        // markers: true
+    }
+})
 
