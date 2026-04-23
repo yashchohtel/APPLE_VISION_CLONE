@@ -27,23 +27,14 @@ html {
 }
 
 /* -------------- PAGE ONE ------------------------------------------------------- */
-/* 
+
 #page-one {
   height: 100vh;
   width: 100vw;
   background-color: #f3f3f5;
   z-index: 1;
-} */
-
-#page-one {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 1;
-  background-color: #f3f3f5;
 }
+
 
 /* page one navbar -------------- */
 
