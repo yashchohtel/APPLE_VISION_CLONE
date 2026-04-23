@@ -37,20 +37,19 @@ function loco() {
 }
 
 // calling the scroll function
-loco();
+// loco();
 
 
 /* ------------------------ PAGE ONE SCROLL TRIGGER ------------------------ */
 
 // scroll trigger for page one hero content (video to play on scroll)
-gsap.to("#page-one>.heroVideo", {
+gsap.to("#page-one", {
 
     scrollTrigger: {
-        trigger: "#page-one>.heroVideo",
+        trigger: "#page-one",
         start: "1% top",
         end: "bottom top",
         scroller: "#main",
-        markers: true
     },
 
     onStart: () => {
@@ -59,14 +58,15 @@ gsap.to("#page-one>.heroVideo", {
 
 });
 
+// pinning page one
 gsap.to("#page-one", {
     scrollTrigger: {
         trigger: "#page-one",
         start: "top top",
-        end: "bottom top",
+        // end: "bottom top",
         scroller: "#main",
         pin: true,
-        // markers: true
     }
 })
 
+/* ------------------------ PAGE TWO SCROLL TRIGGER ------------------------ */
