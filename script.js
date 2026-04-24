@@ -37,7 +37,7 @@ function loco() {
 }
 
 // calling the scroll function
-// loco();
+loco();
 
 
 /* ------------------------ PAGE ONE SCROLL TRIGGER ------------------------ */
@@ -63,10 +63,31 @@ gsap.to("#page-one", {
     scrollTrigger: {
         trigger: "#page-one",
         start: "top top",
-        // end: "bottom top",
+        end: "bottom top",
         scroller: "#main",
         pin: true,
     }
 })
 
 /* ------------------------ PAGE TWO SCROLL TRIGGER ------------------------ */
+
+// scroll trigger for page two to show the subnav
+gsap.to(".subnav", {
+  scrollTrigger: {
+    trigger: "#page-two",
+    start: "top 5%", 
+    end: "top top",
+    scroller: "#main",
+    scrub: true,
+
+    onEnter: () => {
+      document.querySelector(".subnav").classList.add("show");
+    },
+
+    onLeaveBack: () => {
+      document.querySelector(".subnav").classList.remove("show");
+    }
+
+  }
+});
+
