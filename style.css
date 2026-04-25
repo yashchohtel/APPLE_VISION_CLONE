@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 /* universal reset */
 * {
   margin: 0;
@@ -14,11 +16,125 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* -------------- COMMON COMPONENT ------------------------------------------------------- */
+
+.video-controls {
+  position: absolute;
+  top: 3%;
+  right: 19px;
+  z-index: 10;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 3px solid #86868b;
+}
+
+/* play pause button */
+.video-controls .play,
+.video-controls .pause {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.video-controls .play i,
+.video-controls .pause i {
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.video-controls .pause {
+  display: none;
+}
+
 /* -------------- MAIN DIV ------------------------------------------------------- */
 
 #main {
-  /* position: relative; */
+  position: relative;
   overflow: hidden;
+}
+
+/* -------------- SUB NAV -------------------------------------------------------- */
+
+.subnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+}
+
+.subnav .subnavContainer {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  gap: 26rem;
+}
+
+.subnav.show {
+  transform: translateY(0);
+}
+
+/* dark mode */
+.subnav.dark {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.subnav-left {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.subnav-right span {
+  margin-right: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.subnav-right .buy {
+  background: #0071e3;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.subnav-right .demo {
+  border: 1px solid #3c3c3c;
+  background: transparent;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s;
+  font-size: 13px;
+}
+
+.subnav-right .demo:hover {
+  background: #000;
+  color: #f0f0f0;
+  border-color: #000;
 }
 
 /* -------------- PAGE ONE ------------------------------------------------------- */
@@ -134,82 +250,61 @@ body {
   height: 100vh;
   width: 100vw;
   background: #fafafb;
-}
 
-.subnav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
-  transform: translateY(-100%);
-  transition: all 0.3s ease;
-  z-index: 999;
   display: flex;
   justify-content: center;
-}
-
-.subnav .subnavContainer {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
   align-items: center;
-  height: 60px;
-  gap: 26rem;
+  text-align: center;
 }
 
-.subnav.show {
-  transform: translateY(0);
+.page-two-content {
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  align-items: center;
 }
 
-/* dark mode */
-.subnav.dark {
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-}
-
-.subnav-left {
-  font-size: 20px;
+.page-two-content h1 {
+  font-size: 47px;
   font-weight: 600;
+  line-height: 1.2;
+  color: #1d1d1f;
+  margin-bottom: 50px;
+  letter-spacing: 0.1px;
+  width: 750px;
 }
 
-.subnav-right span {
-  margin-right: 20px;
-  font-size: 14px;
-  cursor: pointer;
+.page-two-content h2 {
+  font-size: 47px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1d1d1f;
+  margin-bottom: 50px;
+  letter-spacing: 0.1px;
+  width: 750px;
 }
 
-.subnav-right .buy {
-  background: #0071e3;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.subnav-right .demo {
-  border: 1px solid #ccc;
-  background: transparent;
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-right: 10px;
-  transition: 0.3s;
-}
-
-.subnav-right .demo:hover {
-  background: #000;
-  color: #f0f0f0;
-  border-color: #000;
+.page-two-content h3 {
+  font-size: 47px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1d1d1f;
+  margin-bottom: 50px;
+  letter-spacing: 0.1px;
+  width: 900px;
 }
 
 /* -------------- PAGE THREE ------------------------------------------------------- */
 
 #page-three {
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   background: #bbbbbb;
+  position: relative;
+}
+
+#page-three video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
