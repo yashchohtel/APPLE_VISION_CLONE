@@ -106,7 +106,7 @@ videoBoxes.forEach((box) => {
     const pauseBtn = box.querySelector(".pause");
 
     // looping all videos
-    video.loop = true; 
+    video.loop = true;
 
     // play
     playBtn.addEventListener("click", () => {
@@ -124,4 +124,22 @@ videoBoxes.forEach((box) => {
         playBtn.classList.add("active");
     });
 
+    const circle = box.querySelector(".progress-ring__circle");
+    const radius = 18;
+    const circumference = 2 * Math.PI * radius;
+
+    // initial setup
+    circle.style.strokeDasharray = circumference;
+    circle.style.strokeDashoffset = circumference;
+
+    // update on time change
+    video.addEventListener("timeupdate", () => {
+        const progress = video.currentTime / video.duration;
+
+        const offset = circumference - progress * circumference;
+        circle.style.strokeDashoffset = offset;
+    });
+
 });
+
+

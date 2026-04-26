@@ -50,6 +50,27 @@ video {
   object-fit: cover;
 }
 
+
+/* video progress ring */
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+  z-index: -1;
+}
+
+.progress-ring__circle {
+  fill: transparent;
+  stroke: white;
+  stroke-width: 2;
+
+  stroke-dasharray: 113; /* approx 2πr */
+  stroke-dashoffset: 113;
+
+  transition: stroke-dashoffset 0.1s linear;
+}
+
 /* ---------------- */
 
 /* -------------- COMMON COMPONENT ------------------------------------------------------- */
@@ -329,4 +350,3 @@ video {
 }
 
 /* -------------- PAGE THREE ------------------------------------------------------- */
-
