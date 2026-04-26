@@ -73,21 +73,55 @@ gsap.to("#page-one", {
 
 // scroll trigger for page two to show the subnav
 gsap.to(".subnav", {
-  scrollTrigger: {
-    trigger: "#page-two",
-    start: "top 5%", 
-    end: "top top",
-    scroller: "#main",
-    scrub: true,
+    scrollTrigger: {
+        trigger: "#page-two",
+        start: "top 5%",
+        end: "top top",
+        scroller: "#main",
+        scrub: true,
 
-    onEnter: () => {
-      document.querySelector(".subnav").classList.add("show");
-    },
+        onEnter: () => {
+            document.querySelector(".subnav").classList.add("show");
+        },
 
-    onLeaveBack: () => {
-      document.querySelector(".subnav").classList.remove("show");
+        onLeaveBack: () => {
+            document.querySelector(".subnav").classList.remove("show");
+        }
+
     }
-
-  }
 });
 
+
+/* ------------------------ PAGE TWO SCROLL TRIGGER ------------------------ */
+
+/* ------------------------ ALL VIDEO CONTROLS SCRIPT ---------------------- */
+
+// selecting all video boxes and adding event listeners to play and pause buttons
+const videoBoxes = document.querySelectorAll(".video-box");
+
+videoBoxes.forEach((box) => {
+
+    const video = box.querySelector("video");
+    const playBtn = box.querySelector(".play");
+    const pauseBtn = box.querySelector(".pause");
+
+    // looping all videos
+    video.loop = true; 
+
+    // play
+    playBtn.addEventListener("click", () => {
+        video.play();
+
+        playBtn.classList.remove("active");
+        pauseBtn.classList.add("active");
+    });
+
+    // pause
+    pauseBtn.addEventListener("click", () => {
+        video.pause();
+
+        pauseBtn.classList.remove("active");
+        playBtn.classList.add("active");
+    });
+
+});

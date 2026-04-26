@@ -16,6 +16,42 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+video {
+  user-select: none;
+}
+
+/* -------------- REUSABLE CLASSES ------------------------------------------------------- */
+
+/* page section */
+.page-section {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ---------------- */
+
+/* video page class which contian video for page */
+.video-page {
+  height: 94vh;
+  width: 100vw;
+  position: relative;
+}
+
+/* video page video container */
+.video-page .video-box {
+  height: 100%;
+  width: 100%;
+}
+
+/* video page -> vodeo container -> video */
+.video-page .video-box video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ---------------- */
+
 /* -------------- COMMON COMPONENT ------------------------------------------------------- */
 
 .video-controls {
@@ -43,6 +79,7 @@ body {
   align-items: center;
   justify-content: center;
   background: transparent;
+  display: none;
 }
 
 .video-controls .play i,
@@ -52,8 +89,9 @@ body {
   cursor: pointer;
 }
 
-.video-controls .pause {
-  display: none;
+.video-controls .play.active,
+.video-controls .pause.active {
+  display: flex;
 }
 
 /* -------------- MAIN DIV ------------------------------------------------------- */
@@ -140,8 +178,6 @@ body {
 /* -------------- PAGE ONE ------------------------------------------------------- */
 
 #page-one {
-  height: 100vh;
-  width: 100vw;
   background-color: #f3f3f5;
 }
 
@@ -247,8 +283,6 @@ body {
 /* -------------- PAGE TWO ------------------------------------------------------- */
 
 #page-two {
-  height: 100vh;
-  width: 100vw;
   background: #fafafb;
 
   display: flex;
@@ -295,19 +329,4 @@ body {
 }
 
 /* -------------- PAGE THREE ------------------------------------------------------- */
-
-#page-three {
-  height: 95vh;
-  width: 100vw;
-  background: #bbbbbb;
-  position: relative;
-}
-
-#page-three video {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-
 
