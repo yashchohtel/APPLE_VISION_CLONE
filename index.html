@@ -140,7 +140,13 @@
 
                         <!-- progress ring -->
                         <svg class="progress-ring" width="42" height="42">
+
+                            <!-- base (background circle) -->
+                            <circle class="progress-base" cx="21" cy="21" r="18" />
+
+                            <!-- progress (moving circle) -->
                             <circle class="progress-ring__circle" cx="21" cy="21" r="18" />
+
                         </svg>
 
                         <!-- play -->
@@ -163,19 +169,37 @@
         <section id="page-four" class="page-section">
         </section>
 
-        <!-- PAGE 4 -->
+        <!-- PAGE 5 -->
         <section id="page-five" class="video-page">
 
             <!-- video box -->
             <div class="video-box">
 
-                <div class="video-controls">
-                    <span class="play active">
-                        <i class="fa-solid fa-play"></i>
-                    </span>
-                    <span class="pause">
-                        <i class="fa-solid fa-pause"></i>
-                    </span>
+                <!-- video controls box -->
+                <div class="videoControllContainer">
+
+                    <!-- video controls -->
+                    <div class="video-controls">
+
+                        <!-- progress ring -->
+                        <svg class="progress-ring" width="42" height="42">
+
+                            <!-- base (background circle) -->
+                            <circle class="progress-base" cx="21" cy="21" r="18" />
+
+                            <!-- progress (moving circle) -->
+                            <circle class="progress-ring__circle" cx="21" cy="21" r="18" />
+                            
+                        </svg>
+
+                        <!-- play -->
+                        <span class="play active"> <i class="fa-solid fa-play"></i> </span>
+
+                        <!-- pause -->
+                        <span class="pause"> <i class="fa-solid fa-pause"></i> </span>
+
+                    </div>
+
                 </div>
 
                 <video src="/videos/page3.mp4" muted playsinline></video>

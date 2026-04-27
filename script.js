@@ -40,6 +40,55 @@ function loco() {
 loco();
 
 
+/* ------------------------ ALL VIDEO CONTROLS SCRIPT ---------------------- */
+
+// selecting all video boxes and adding event listeners to play and pause buttons
+const videoBoxes = document.querySelectorAll(".video-box");
+
+videoBoxes.forEach((box) => {
+
+    const video = box.querySelector("video");
+    const playBtn = box.querySelector(".play");
+    const pauseBtn = box.querySelector(".pause");
+
+    // looping all videos
+    video.loop = true;
+
+    // play
+    playBtn.addEventListener("click", () => {
+        video.play();
+
+        playBtn.classList.remove("active");
+        pauseBtn.classList.add("active");
+    });
+
+    // pause
+    pauseBtn.addEventListener("click", () => {
+        video.pause();
+
+        pauseBtn.classList.remove("active");
+        playBtn.classList.add("active");
+    });
+
+    const circle = box.querySelector(".progress-ring__circle");
+    const radius = 18;
+    const circumference = 2 * Math.PI * radius;
+
+    // initial setup
+    circle.style.strokeDasharray = circumference;
+    circle.style.strokeDashoffset = circumference;
+
+    // update on time change
+    video.addEventListener("timeupdate", () => {
+        const progress = video.currentTime / video.duration;
+
+        const offset = circumference - progress * circumference;
+        circle.style.strokeDashoffset = offset;
+    });
+
+});
+
+
 /* ------------------------ PAGE ONE SCROLL TRIGGER ------------------------ */
 
 // scroll trigger for page one hero content (video to play on scroll)
@@ -94,52 +143,30 @@ gsap.to(".subnav", {
 
 /* ------------------------ PAGE TWO SCROLL TRIGGER ------------------------ */
 
-/* ------------------------ ALL VIDEO CONTROLS SCRIPT ---------------------- */
+// scroll trigger for page three video to play and pause on scroll
+const pageThreeVideo = document.querySelector("#page-three video");
 
-// selecting all video boxes and adding event listeners to play and pause buttons
-const videoBoxes = document.querySelectorAll(".video-box");
+ScrollTrigger.create({
+    trigger: "#page-three",
+    start: "top 70%",  
+    end: "bottom top",
+    scroller: "#main",
 
-videoBoxes.forEach((box) => {
+    onEnter: () => {
+        pageThreeVideo.play();
+    },
 
-    const video = box.querySelector("video");
-    const playBtn = box.querySelector(".play");
-    const pauseBtn = box.querySelector(".pause");
+    onEnterBack: () => {
+        pageThreeVideo.play();
+    },
 
-    // looping all videos
-    video.loop = true;
+    onLeave: () => {
+        pageThreeVideo.pause();
+    },
 
-    // play
-    playBtn.addEventListener("click", () => {
-        video.play();
-
-        playBtn.classList.remove("active");
-        pauseBtn.classList.add("active");
-    });
-
-    // pause
-    pauseBtn.addEventListener("click", () => {
-        video.pause();
-
-        pauseBtn.classList.remove("active");
-        playBtn.classList.add("active");
-    });
-
-    const circle = box.querySelector(".progress-ring__circle");
-    const radius = 18;
-    const circumference = 2 * Math.PI * radius;
-
-    // initial setup
-    circle.style.strokeDasharray = circumference;
-    circle.style.strokeDashoffset = circumference;
-
-    // update on time change
-    video.addEventListener("timeupdate", () => {
-        const progress = video.currentTime / video.duration;
-
-        const offset = circumference - progress * circumference;
-        circle.style.strokeDashoffset = offset;
-    });
-
+    onLeaveBack: () => {
+        pageThreeVideo.pause();
+    },
+    
 });
-
 
