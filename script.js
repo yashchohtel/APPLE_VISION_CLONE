@@ -145,28 +145,41 @@ gsap.to(".subnav", {
 
 // scroll trigger for page three video to play and pause on scroll
 const pageThreeVideo = document.querySelector("#page-three video");
+const pageThreePlayBtn = document.querySelector("#page-three .play");
+const pageThreePauseBtn = document.querySelector("#page-three .pause");
 
 ScrollTrigger.create({
     trigger: "#page-three",
-    start: "top 70%",  
+    start: "top 70%",
     end: "bottom top",
     scroller: "#main",
 
     onEnter: () => {
         pageThreeVideo.play();
+
+        pageThreePlayBtn.classList.remove("active");
+        pageThreePauseBtn.classList.add("active");
     },
 
     onEnterBack: () => {
         pageThreeVideo.play();
+
+        pageThreePlayBtn.classList.remove("active");
+        pageThreePauseBtn.classList.add("active");
     },
 
     onLeave: () => {
         pageThreeVideo.pause();
+
+        pageThreePauseBtn.classList.remove("active");
+        pageThreePlayBtn.classList.add("active");
     },
 
     onLeaveBack: () => {
         pageThreeVideo.pause();
-    },
-    
+
+        pageThreePauseBtn.classList.remove("active");
+        pageThreePlayBtn.classList.add("active");
+    }
 });
 
