@@ -43,6 +43,55 @@ loco();
 /* ------------------------ ALL VIDEO CONTROLS SCRIPT ---------------------- */
 
 // selecting all video boxes and adding event listeners to play and pause buttons
+// const videoBoxes = document.querySelectorAll(".video-box");
+
+// videoBoxes.forEach((box) => {
+
+//     const video = box.querySelector("video");
+//     const playBtn = box.querySelector(".play");
+//     const pauseBtn = box.querySelector(".pause");
+
+//     // 👇 yaha
+//     let isUserPaused = false;
+
+//     // looping all videos
+//     video.loop = true;
+
+//     // play
+//     playBtn.addEventListener("click", () => {
+//         video.play();
+
+//         playBtn.classList.remove("active");
+//         pauseBtn.classList.add("active");
+//     });
+
+//     // pause
+//     pauseBtn.addEventListener("click", () => {
+//         video.pause();
+
+//         pauseBtn.classList.remove("active");
+//         playBtn.classList.add("active");
+//     });
+
+//     const circle = box.querySelector(".progress-ring__circle");
+//     const radius = 18;
+//     const circumference = 2 * Math.PI * radius;
+
+//     // initial setup
+//     circle.style.strokeDasharray = circumference;
+//     circle.style.strokeDashoffset = circumference;
+
+//     // update on time change
+//     video.addEventListener("timeupdate", () => {
+//         const progress = video.currentTime / video.duration;
+
+//         const offset = circumference - progress * circumference;
+//         circle.style.strokeDashoffset = offset;
+//     });
+
+// });
+
+// -------------------- SELECT ALL VIDEO BOXES --------------------
 const videoBoxes = document.querySelectorAll(".video-box");
 
 videoBoxes.forEach((box) => {
@@ -50,40 +99,97 @@ videoBoxes.forEach((box) => {
     const video = box.querySelector("video");
     const playBtn = box.querySelector(".play");
     const pauseBtn = box.querySelector(".pause");
+    const circle = box.querySelector(".progress-ring__circle");
 
-    // looping all videos
+    // -------------------- PER VIDEO FLAG --------------------
+    let isUserPaused = false;
+
+    // -------------------- LOOP ENABLE --------------------
     video.loop = true;
 
-    // play
+    // -------------------- PLAY BUTTON --------------------
     playBtn.addEventListener("click", () => {
+        isUserPaused = false;
         video.play();
 
         playBtn.classList.remove("active");
         pauseBtn.classList.add("active");
     });
 
-    // pause
+    // -------------------- PAUSE BUTTON --------------------
     pauseBtn.addEventListener("click", () => {
+        isUserPaused = true;
         video.pause();
 
         pauseBtn.classList.remove("active");
         playBtn.classList.add("active");
     });
 
-    const circle = box.querySelector(".progress-ring__circle");
+    // -------------------- PROGRESS RING --------------------
     const radius = 18;
     const circumference = 2 * Math.PI * radius;
 
-    // initial setup
     circle.style.strokeDasharray = circumference;
     circle.style.strokeDashoffset = circumference;
 
-    // update on time change
     video.addEventListener("timeupdate", () => {
-        const progress = video.currentTime / video.duration;
+        if (!video.duration) return;
 
+        const progress = video.currentTime / video.duration;
         const offset = circumference - progress * circumference;
+
         circle.style.strokeDashoffset = offset;
+    });
+
+    // -------------------- SCROLL CONTROL --------------------
+    ScrollTrigger.create({
+        trigger: box,
+        scroller: "#main",
+
+        start: "top 70%",
+        end: "bottom top",
+
+        // video enter (scroll down)
+        onEnter: () => {
+            if (!isUserPaused) {
+                video.play();
+
+                playBtn.classList.remove("active");
+                pauseBtn.classList.add("active");
+            }
+        },
+
+        // video enter (scroll up)
+        onEnterBack: () => {
+            if (!isUserPaused) {
+                video.play();
+
+                playBtn.classList.remove("active");
+                pauseBtn.classList.add("active");
+            }
+        },
+
+        // video leaves (scroll down)
+        onLeave: () => {
+            if (!isUserPaused) {
+                video.currentTime = 0; // reset
+                video.play();          // restart
+
+                playBtn.classList.remove("active");
+                pauseBtn.classList.add("active");
+            }
+        },
+
+        // video leaves (scroll up)
+        onLeaveBack: () => {
+            if (!isUserPaused) {
+                video.currentTime = 0;
+                video.play();
+
+                playBtn.classList.remove("active");
+                pauseBtn.classList.add("active");
+            }
+        }
     });
 
 });
@@ -143,43 +249,43 @@ gsap.to(".subnav", {
 
 /* ------------------------ PAGE TWO SCROLL TRIGGER ------------------------ */
 
-// scroll trigger for page three video to play and pause on scroll
-const pageThreeVideo = document.querySelector("#page-three video");
-const pageThreePlayBtn = document.querySelector("#page-three .play");
-const pageThreePauseBtn = document.querySelector("#page-three .pause");
+// // scroll trigger for page three video to play and pause on scroll
+// const pageThreeVideo = document.querySelector("#page-three video");
+// const pageThreePlayBtn = document.querySelector("#page-three .play");
+// const pageThreePauseBtn = document.querySelector("#page-three .pause");
 
-ScrollTrigger.create({
-    trigger: "#page-three",
-    start: "top 70%",
-    end: "bottom top",
-    scroller: "#main",
+// ScrollTrigger.create({
+//     trigger: "#page-three",
+//     start: "top 70%",
+//     end: "bottom top",
+//     scroller: "#main",
 
-    onEnter: () => {
-        pageThreeVideo.play();
+//     onEnter: () => {
+//         pageThreeVideo.play();
 
-        pageThreePlayBtn.classList.remove("active");
-        pageThreePauseBtn.classList.add("active");
-    },
+//         pageThreePlayBtn.classList.remove("active");
+//         pageThreePauseBtn.classList.add("active");
+//     },
 
-    onEnterBack: () => {
-        pageThreeVideo.play();
+//     onEnterBack: () => {
+//         pageThreeVideo.play();
 
-        pageThreePlayBtn.classList.remove("active");
-        pageThreePauseBtn.classList.add("active");
-    },
+//         pageThreePlayBtn.classList.remove("active");
+//         pageThreePauseBtn.classList.add("active");
+//     },
 
-    onLeave: () => {
-        pageThreeVideo.pause();
+//     onLeave: () => {
+//         pageThreeVideo.pause();
 
-        pageThreePauseBtn.classList.remove("active");
-        pageThreePlayBtn.classList.add("active");
-    },
+//         pageThreePauseBtn.classList.remove("active");
+//         pageThreePlayBtn.classList.add("active");
+//     },
 
-    onLeaveBack: () => {
-        pageThreeVideo.pause();
+//     onLeaveBack: () => {
+//         pageThreeVideo.pause();
 
-        pageThreePauseBtn.classList.remove("active");
-        pageThreePlayBtn.classList.add("active");
-    }
-});
+//         pageThreePauseBtn.classList.remove("active");
+//         pageThreePlayBtn.classList.add("active");
+//     }
+// });
 
