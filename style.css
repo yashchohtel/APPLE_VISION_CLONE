@@ -123,8 +123,16 @@ video {
 }
 
 /* image and video slider */
-.slider-wrapper{
-  
+.slider-wrapper {
+  display: flex;
+  gap: 40px; /* spacing */
+}
+
+.slide {
+  width: 70vw; /* full screen nahi */
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 /* -------------- MAIN DIV ------------------------------------------------------- */
