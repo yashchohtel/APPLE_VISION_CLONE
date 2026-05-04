@@ -122,26 +122,17 @@ gsap.to("#page-one", {
 
 // scroll trigger for page two to show the subnav
 gsap.to(".subnav", {
+    y: 0,
     scrollTrigger: {
         trigger: "#page-two",
         start: "top 5%",
         end: "top top",
         scroller: "#main",
-        scrub: true,
-
-        onEnter: () => {
-            document.querySelector(".subnav").classList.add("show");
-        },
-
-        onLeaveBack: () => {
-            document.querySelector(".subnav").classList.remove("show");
-        }
-
+        scrub: 0.5,
     }
 });
 
-
-/* ------------------------ PAGE TWO SCROLL TRIGGER ------------------------ */
+/* ------------------------ PAGE THREE SCROLL TRIGGER ------------------------ */
 
 // scroll trigger for page three video to play and pause on scroll
 const pageThreeVideo = document.querySelector("#page-three video");
@@ -181,7 +172,7 @@ ScrollTrigger.create({
         pageThreePauseBtn.classList.remove("active");
         pageThreePlayBtn.classList.add("active");
     }
-    
+
 });
 
 

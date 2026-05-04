@@ -11,9 +11,12 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+  /* font-family: "Poppins", sans-serif; */
+  /* font-family: "Roboto", sans-serif; */
 }
 
 video {
@@ -118,6 +121,12 @@ video {
   stroke-dasharray: 113;
   stroke-dashoffset: 113;
 }
+
+/* image and video slider */
+.slider-wrapper{
+  
+}
+
 /* -------------- MAIN DIV ------------------------------------------------------- */
 
 #main {
@@ -353,3 +362,34 @@ video {
 }
 
 /* -------------- PAGE THREE ------------------------------------------------------- */
+
+/* nothign on page three to style seprately */
+
+/* -------------- PAGE FOUR -------------------------------------------------------- */
+
+#page-four {
+  background-color: #ffffff;
+}
+
+/* page four heading */
+.page4heading {
+  padding-top: 13rem;
+  padding-left: 17rem;
+  font-size: 56px;
+  line-height: 1.0714285714;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  font-family: "Lato", sans-serif;
+}
+
+/* -------------- PAGE FIVE -------------------------------------------------------- */
+
+#page-five {
+  background-color: #ff7c7c;
+}
+
+/* -------------- PAGE SIX -------------------------------------------------------- */
+
+#page-six {
+  background-color: #a890ff;
+}
