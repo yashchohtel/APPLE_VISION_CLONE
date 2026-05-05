@@ -27,7 +27,7 @@ video {
 
 /* page section */
 .page-section {
- min-height: 100vh;
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -125,18 +125,57 @@ video {
 .slider-wrapper {
   display: flex;
   gap: 40px;
-  margin-left: 17rem;
-  margin-right: 17rem;
+  overflow-x: auto; /* 👈 scroll enable */
+  scroll-behavior: smooth;
+  padding: 0 20vw; /* 👈 left-right space (Apple feel) */
+}
+
+.slider-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-wrapper {
+  scroll-snap-type: x mandatory;
 }
 
 .slide {
+  scroll-snap-align: center;
+}
+
+.slide {
+  height: 530px;
+  border-radius: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.slide video,
+.slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.slide:nth-child(1) {
+  width: 800px;
+}
+
+.slide:nth-child(2) {
+  width: 500px;
+}
+
+.slide:nth-child(3) {
+  width: 700px;
+}
+
+/* .slide {
   width: 820px;
   height: 530px;
   background-color: burlywood;
   flex-shrink: 0;
   border-radius: 20px;
   overflow: hidden;
-}
+} */
 
 /* -------------- MAIN DIV ------------------------------------------------------- */
 
@@ -385,14 +424,14 @@ video {
 
 /* page four heading */
 .page4heading {
-  padding-top: 10rem;
+  padding-top: 13rem;
   padding-left: 17rem;
   font-size: 56px;
   line-height: 1.0714285714;
   font-weight: 600;
   letter-spacing: -0.005em;
   font-family: "Lato", sans-serif;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 /* -------------- PAGE FIVE -------------------------------------------------------- */
