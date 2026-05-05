@@ -27,8 +27,8 @@ video {
 
 /* page section */
 .page-section {
-  height: 100vh;
-  width: 100vw;
+ min-height: 100vh;
+  width: 100%;
 }
 
 /* ---------------- */
@@ -117,7 +117,6 @@ video {
   fill: transparent;
   stroke: #ffffff;
   stroke-width: 3;
-
   stroke-dasharray: 113;
   stroke-dashoffset: 113;
 }
@@ -125,11 +124,15 @@ video {
 /* image and video slider */
 .slider-wrapper {
   display: flex;
-  gap: 40px; /* spacing */
+  gap: 40px;
+  margin-left: 17rem;
+  margin-right: 17rem;
 }
 
 .slide {
-  width: 70vw; /* full screen nahi */
+  width: 820px;
+  height: 530px;
+  background-color: burlywood;
   flex-shrink: 0;
   border-radius: 20px;
   overflow: hidden;
@@ -377,17 +380,19 @@ video {
 
 #page-four {
   background-color: #ffffff;
+  min-height: 100vh;
 }
 
 /* page four heading */
 .page4heading {
-  padding-top: 13rem;
+  padding-top: 10rem;
   padding-left: 17rem;
   font-size: 56px;
   line-height: 1.0714285714;
   font-weight: 600;
   letter-spacing: -0.005em;
   font-family: "Lato", sans-serif;
+  margin-bottom: 4rem;
 }
 
 /* -------------- PAGE FIVE -------------------------------------------------------- */
