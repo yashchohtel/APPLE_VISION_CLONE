@@ -88,7 +88,6 @@ videoBoxes.forEach((box) => {
 
 });
 
-
 /* ------------------------ PAGE ONE SCROLL TRIGGER ------------------------ */
 
 // scroll trigger for page one hero content (video to play on scroll)
